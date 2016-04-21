@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->setupUi(this);
   setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
   setAttribute(Qt::WA_TranslucentBackground);
-  // example of target window class: "Notepad++"
   target_window = FindWindowA("Notepad", 0);
   if (!target_window) {
     qDebug() << "window not found";
