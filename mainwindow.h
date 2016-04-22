@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <choices.h>
 
 namespace Ui {
 class MainWindow;
@@ -14,14 +15,21 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    HWND target_window;
+
+public slots:
+    void openChoices();
+
+private slots:
+  void update_pos();
+
+  void on_pushButton_clicked();
+
+  void on_forward_clicked();
 
 private:
     Ui::MainWindow *ui;
-
-    HWND target_window;
-
-private slots:
-    void update_pos();
+    choices *choiceWindow;
 };
 
 #endif // MAINWINDOW_H
