@@ -27,3 +27,10 @@ FORMS    += mainwindow.ui \
     choices.ui
 
 win32:LIBS += -luser32
+
+DISTFILES += \
+    overlay.ico \
+    overlay.rc
+
+RC_FILE = overlay.rc
+CONFIG+= static

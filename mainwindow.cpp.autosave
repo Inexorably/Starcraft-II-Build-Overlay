@@ -63,7 +63,6 @@ void MainWindow::openChoices(){
 void MainWindow::update_pos(){
      RECT rect;
      if (GetWindowRect(target_window, &rect)) {
-//       setGeometry(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
        SetWindowPos((HWND)this->winId(), HWND_TOPMOST, rect.left, rect.top, 0, 0, SWP_NOSIZE);
      } else {
        //maybe window was closed
