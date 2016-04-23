@@ -3,6 +3,8 @@
 
 #include "buildorder.h"
 
-buildOrder globList;
+extern buildOrder globList;
+
+void initialize();
 
 #endif // GLOBALS_H

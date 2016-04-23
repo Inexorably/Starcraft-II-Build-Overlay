@@ -16,6 +16,7 @@
 #include <sstream>
 #include <fstream>
 
+
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
   ui(new Ui::MainWindow){
@@ -27,15 +28,16 @@ MainWindow::MainWindow(QWidget *parent) :
     qDebug() << "window not found";
     return;
   }
-  QTimer* timer = new QTimer(this);
-  connect(timer, SIGNAL(timeout()), this, SLOT(update_pos()));
-  timer->start(50); // update interval in milliseconds
+  update_pos();
 
   //Make labels nontransparent.
   ui->buildText->setStyleSheet("background-color: rgba(112, 234, 242, 1);");
 
   //Change name.
   setWindowTitle("Build Overlay");
+
+  //Initialize globals.
+  initialize();
 
 }
 
@@ -63,20 +65,36 @@ void MainWindow::update_pos(){
 }
 
 void MainWindow::on_pushButton_clicked(){
-    setWindowFlags(windowFlags() & ~Qt::WindowStaysOnTopHint);
+    //setWindowFlags(windowFlags() & ~Qt::WindowStaysOnTopHint);
+    //timer->stop();
     std::fstream infile;
+    initialize();
     std::string filename = QFileDialog::getOpenFileName(this, tr("TXT file"), qApp->applicationDirPath (),tr("TXT File (*.txt)")).toStdString();
     if (filename.empty())
         return;
 
     infile.open(filename, std::fstream:: in | std::fstream::out | std::fstream::app);
-    if (true) {
-
+    for (std::string line; getline( infile, line );){
+        QString conv = QString::fromStdString(line);
+        globList.toBuild.push_back(conv);
     }
     infile.close();
-    //openChoices();
+
+    ui->buildText->clear();
+    ui->buildText->setText(globList.toBuild[globList.index]);
+    QTimer* timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(update_pos()));
+    timer->start(50); // update interval in milliseconds
+
+    //timer->start(50);
 }
 
 void MainWindow::on_forward_clicked(){
-    globList.nextItem();
+    ui->buildText->clear();
+    ui->buildText->setText(globList.nextItem());
+}
+
+void MainWindow::on_backwards_clicked(){
+    ui->buildText->clear();
+    ui->buildText->setText(globList.prevItem());
 }

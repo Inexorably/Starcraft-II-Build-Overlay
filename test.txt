@@ -1,0 +1,17 @@
+13 Overlord
+17 Hatchery (send drone when you have 180~200 minerals)
+18 Gas
+18 Spawning Pool
+19 Overlord (stop droning)
+@Spawning Pool: 2 Queens + 2 sets lings + metabolic boost (zergling speed) + take 2 drones off of gas (resume droning)
+31 3rd Queen + Overlord
+36 Overlord
+40 Overlord (optional, if you sacrifice an overlord into opponent's base to scout you'll need to replace it)
+44 Overlord
+3:30 Roach Warren
+@2 Base Saturation (16/16 drones on both mineral lines): Back on gas in the main, add 3 gases, take a 3rd base
+@100 Gas: Lair + Evolution Chamber
+@Evolution Chamber: +1 Missile Attack
+@Lair: Roach Speed
+Constant Roach Production
+Attack 25 seconds before +1 and Roach Speed finish so that they finish by the time you reach the other side of the map, should be done around 6:30 and have 120+ supply

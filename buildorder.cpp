@@ -1,7 +1,7 @@
 #include "buildorder.h"
 
 int buildOrder::totalItems(){
-    return supply.size();
+    return (int)supply.size();
 }
 
 int buildOrder::currIndex(){
@@ -9,20 +9,32 @@ int buildOrder::currIndex(){
 }
 
 QString buildOrder::nextItem(){
-    if (index >= supply.size())
-        return "UPPER_LIMIT";
+    if (toBuild.empty())
+        return "No build selected";
+    if (index >= toBuild.size() - 1)
+        return currItem();
     index++;
     return toBuild[index];
 
 }
 
 QString buildOrder::prevItem(){
+    if (toBuild.empty())
+        return "No build selected";
     if (index <= 0)
-        return "LOWER_LIMIT";
+        return currItem();
     index--;
     return toBuild[index];
 }
 
 void buildOrder::initialize(){
     index = 0;
+}
+
+QString buildOrder::currItem(){
+    return toBuild[index];
+}
+
+void buildOrder::addItem(QString add){
+    toBuild.push_back(add);
 }

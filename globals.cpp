@@ -1,3 +1,8 @@
 #include "globals.h"
 
-int filler = 0;
+buildOrder globList;
+
+void initialize(){
+    globList.initialize();
+}
+

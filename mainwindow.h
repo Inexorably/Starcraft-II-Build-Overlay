@@ -16,6 +16,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     HWND target_window;
+    QTimer *timer;
 
 public slots:
     void openChoices();
@@ -26,6 +27,8 @@ private slots:
   void on_pushButton_clicked();
 
   void on_forward_clicked();
+
+  void on_backwards_clicked();
 
 private:
     Ui::MainWindow *ui;

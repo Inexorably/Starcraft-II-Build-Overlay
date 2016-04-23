@@ -12,6 +12,8 @@ struct buildOrder{
     int currIndex();
     QString nextItem();
     QString prevItem();
+    QString currItem();
+    void addItem(QString add);
 
     int totalItems();
 
